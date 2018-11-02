@@ -1,0 +1,9 @@
+Collecting pandas
+  Using cached https://files.pythonhosted.org/packages/58/a8/03e5fe0edbc522e46cb27df2abfb4266814129253d8462f38bc704a76a2a/pandas-0.23.4-cp37-cp37m-win_amd64.whl
+Requirement already satisfied: pytz>=2011k in d:\myself\healthcareai-py\venv\lib\site-packages (from pandas) (2016.7)
+Requirement already satisfied: numpy>=1.9.0 in d:\myself\healthcareai-py\venv\lib\site-packages (from pandas) (1.15.3)
+Collecting python-dateutil>=2.5.0 (from pandas)
+  Downloading https://files.pythonhosted.org/packages/74/68/d87d9b36af36f44254a8d512cbfc48369103a3b9e474be9bdfe536abfc45/python_dateutil-2.7.5-py2.py3-none-any.whl (225kB)
+Requirement already satisfied: six>=1.5 in d:\myself\healthcareai-py\venv\lib\site-packages (from python-dateutil>=2.5.0->pandas) (1.10.0)
+Installing collected packages: python-dateutil, pandas
+Successfully installed pandas-0.23.4 python-dateutil-2.7.5
