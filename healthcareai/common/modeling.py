@@ -12,6 +12,8 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from operator import itemgetter, attrgetter
+from sklearn.preprocessing import label_binarize
+from sklearn.multiclass import OneVsRestClassifier
 
 ## using "Recursive Feature Elimination" RFE as the feature selection method.
 from sklearn.feature_selection import RFECV
@@ -153,13 +155,13 @@ def featureSelectionByModel(dataframe, outcome, feature_names, dfModels):
         fe_score = cross_val_score(modelSelection, X_new, outcome, cv=strat_k_fold, scoring='accuracy').mean()
         print("Accuracy after Feature Selection : {} ".format(fe_score))
 
-        importFeature = {'score': fe_score - initial_score, 'feature': new_features, 'model': modelSelection}
+        importFeature = {'score': fe_score - initial_score, 'feature': new_features, 'model': rfecv}
         modelFeatures.append(importFeature)
 
     sortedImportFeature = sorted(modelFeatures, key=lambda obj: obj['score'], reverse=True)
     # choose feature with max score
     sortedImportFeature = sortedImportFeature[0]
-    featureImportances = pd.DataFrame({'Feature': sortedImportFeature['feature'] })
+    featureImportances = pd.DataFrame({'features': sortedImportFeature['feature'], 'model': sortedImportFeature['model']})
     return featureImportances
 
 def featureImportance(dataframe, feature_names, output, model):

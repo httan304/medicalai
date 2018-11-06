@@ -1,4 +1,5 @@
 import json
+import os
 import pickle
 
 from healthcareai.common.healthcareai_error import HealthcareAIError
@@ -34,6 +35,8 @@ def save_object_as_pickle(object_to_pickle, filename):
 
 
 def load_pickle_file(filename):
+    print('load_pickle_file')
+    print(os.path.realpath(filename))
     """
     Loads a python object of any type from a pickle file with the given filename
 
@@ -54,6 +57,7 @@ def load_pickle_file(filename):
 
 
 def load_saved_model(filename, debug=True):
+    print('load_saved_model')
     """
     Convenience method for a simple API without users needing to know what pickling is. Also prints model metadata
     
